@@ -86,6 +86,13 @@ gitlab-insight-bot-main/node_modules/
 # ─────────────────────────────────────────
 Part1/data/faiss_index/
 Part1/data/handbook_cleaned_FULL.txt
+Part1/data
+Part1/Code-snippets-explaination.md
+Part1/Readme.md
+Part2/.env
+Part2/Code_snippets_explanation.md
+Part2/Readme.md
+Part3
 # Keep source docs that are tracked:
 # Part1/data/handbook_final.txt       ← include if small enough
 # Part1/data/direction_final.txt      ← include if small enough
@@ -141,3 +148,4 @@ tmp/
 RENDER_DEPLOYMENT.md
 Part1/data
 gitlab-insight-bot-main/
+Part1/Data_Acquistion
