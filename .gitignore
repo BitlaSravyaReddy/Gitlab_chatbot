@@ -1,0 +1,142 @@
+# ─────────────────────────────────────────
+# 🔐 Environment & Secrets — NEVER commit
+# ─────────────────────────────────────────
+.env
+.env.*
+!.env.example
+Part2/.env
+*.pem
+*.key
+
+# ─────────────────────────────────────────
+# 🐍 Python
+# ─────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+wheels/
+*.whl
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+.installed.cfg
+lib/
+lib64/
+parts/
+var/
+sdist/
+develop-eggs/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+.conda/
+
+# Jupyter / IPython
+.ipynb_checkpoints/
+*.ipynb
+
+# mypy / pyright
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyright/
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# ─────────────────────────────────────────
+# 📦 Node.js / npm
+# ─────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+.yarn/
+package-lock.json
+yarn.lock
+
+# ─────────────────────────────────────────
+# ⚡ Vite / TanStack / Build output
+# ─────────────────────────────────────────
+gitlab-insight-bot-main/.output/
+gitlab-insight-bot-main/dist/
+gitlab-insight-bot-main/.vinxi/
+gitlab-insight-bot-main/.wrangler/
+gitlab-insight-bot-main/node_modules/
+
+# ─────────────────────────────────────────
+# 🗃️ Large Data Files & Vector Indices
+# — too large for git (164 MB total)
+# ─────────────────────────────────────────
+Part1/data/faiss_index/
+Part1/data/handbook_cleaned_FULL.txt
+# Keep source docs that are tracked:
+# Part1/data/handbook_final.txt       ← include if small enough
+# Part1/data/direction_final.txt      ← include if small enough
+
+# ─────────────────────────────────────────
+# 🗜️ Archives & Downloads
+# ─────────────────────────────────────────
+*.zip
+*.tar.gz
+*.tar.bz2
+*.tgz
+*.rar
+*.7z
+*.Zone.Identifier
+
+# ─────────────────────────────────────────
+# 💻 OS Files
+# ─────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# ─────────────────────────────────────────
+# 🛠️ IDE & Editor
+# ─────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# ─────────────────────────────────────────
+# 📝 Logs & Temp
+# ─────────────────────────────────────────
+*.log
+*.tmp
+*.temp
+logs/
+tmp/
+
+# ─────────────────────────────────────────
+# ☁️ Deployment artefacts
+# ─────────────────────────────────────────
+.render/
+RENDER_DEPLOYMENT.md
+Part1/data
