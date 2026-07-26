@@ -1,3 +1,0 @@
----
-title: Adoption Landing Zones
----
