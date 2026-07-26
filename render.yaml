@@ -2,23 +2,20 @@ services:
   - type: web
     name: gitlab-ai-chatbot
     runtime: python
-    region: oregon               # Change to: frankfurt, singapore, ohio as needed
-    plan: free                   # Upgrade to 'starter' for no spin-down & more RAM
+    region: oregon               # or frankfurt / singapore / ohio
+    plan: free                   # change to starter later if you want no sleep
 
-    # ── Runtime versions ────────────────────────────────────────────────────
-    pythonVersion: "3.10.12"
     buildCommand: |
-      # 1. Install Python dependencies (slim production set — no torch/faiss/streamlit)
       pip install --upgrade pip
-      pip install -r requirements-prod.txt
+      pip install -r requirements.txt
 
-      # 2. Install Node 20 via nvm (Render provides nvm)
+      # Install Node 20
       export NVM_DIR="$HOME/.nvm"
-      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+      [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
       nvm install 20
       nvm use 20
 
-      # 3. Build React frontend
+      # Build frontend
       cd gitlab-insight-bot-main
       npm install --legacy-peer-deps
       npm run build
@@ -26,24 +23,17 @@ services:
 
     startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT --workers 1
 
-    # ── Health check ─────────────────────────────────────────────────────────
     healthCheckPath: /health
 
-    # ── Environment variables ─────────────────────────────────────────────────
-    # Set these in the Render dashboard → Environment tab.
-    # Never hardcode secrets here.
     envVars:
       - key: GOOGLE_API_KEY
-        sync: false              # Must be set manually in Render dashboard
+        sync: false
 
       - key: PINECONE_API_KEY
-        sync: false              # Must be set manually in Render dashboard
+        sync: false
 
       - key: PINECONE_INDEX_NAME
-        value: gitlab-chatbot    # Change if you used a different index name
+        value: gitlab-chatbot
 
       - key: PYTHON_VERSION
         value: "3.10.12"
-
-      - key: PORT
-        value: "10000"           # Render injects $PORT automatically; this is the default
